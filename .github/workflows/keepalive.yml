@@ -1,0 +1,28 @@
+name: keepalive
+
+on:
+  schedule:
+    - cron: "0 6 */3 * *"   # every 3 days at 06:00 UTC
+  workflow_dispatch:         # allows manual runs
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm install
+
+      - run: node keepalive.mjs
+        env:
+          MONGODB_URI_COLABS_DOCS: ${{ secrets.mongodb+srv://omaryasir5712:0100389194@cluster0.zgcobm0.mongodb.net/?appName=Cluster0 }}
+          MONGODB_URI_CAREPOINT: ${{ secrets.mongodb+srv://omaryasir5712_db_user:0100389194@cluster0.94pdbwm.mongodb.net/?appName=Cluster0 }}
+          MONGODB_URI_DOORSTEP: ${{ secrets.mongodb+srv://omaryasir5712_db_user:faib4X8AUlCnaHsz@cluster0.iig2k17.mongodb.net }}
+          MONGODB_URI_DELIVEREASE: ${{ secrets.mongodb+srv://omaryasir5712_db_user:Pej12zA3apiecgX6@cluster0.0lixb0x.mongodb.net }}
+          MONGODB_URI_ECOMMERCE: ${{ secrets.mongodb+srv://omarYasir:0100389194@cluster0.hktktmt.mongodb.net/?appName=Cluster0 }}
+          MONGODB_URI_RIVVO: ${{ secrets.mongodb+srv://omaryasir5712_db_user:FFshLZHfwvCu6G9C@cluster0.zdhfhhw.mongodb.net }}
+          MONGODB_URI_SHIREME: ${{ secrets.mongodb+srv://omaryasir:0100389194@cluster0.dhwavrm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0 }}
