@@ -26,3 +26,4 @@ jobs:
           MONGODB_URI_ECOMMERCE: ${{ secrets.MONGODB_URI_ECOMMERCE }}
           MONGODB_URI_RIVVO: ${{ secrets.MONGODB_URI_RIVVO }}
           MONGODB_URI_SHIREME: ${{ secrets.MONGODB_URI_SHIREME }}
+          
